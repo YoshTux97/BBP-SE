@@ -11,6 +11,8 @@ public class payTest {
 	}
 
 	@Test
-	public void paying_
+	public void paying_liquidCustomer_true() {}
+	
+	public void paying_brokeCustomer_false() {}
 
 }
