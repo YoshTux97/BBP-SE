@@ -1,0 +1,13 @@
+ 1. Als Kunde möchte ich die Rechnung per Mobiltelefon bezahlen können, um dies ohne Aussteigen aus meinem Auto tun zu können.
+ 2. Als Kunde möchte ich einen Parkplatz reservieren können, um sicher einen Parkplatz bekommen zu können.
+ 3. Als Parkhauseigentümer möchte ich die Einnahmen einsehen können, um diese in der Steuererklärung angeben zu können.
+ 4. Als Manager möchte ich Einfluss auf die Preise haben, um den Umsatz optimieren zu können.
+ 5. Als Kunde möchte ich einen Parkplatz zugewiesen bekommen, um schnell einen freien Parkplatz finden zu können.
+ 6. Als Kunde benötige ich eine Möglichkeit meine Rechnung zu bezahlen, um den Stellplatz bezahlen zu können.
+ 7. Als Parkhauseigentümer möchte ich, dass die Schranke automatisiert wird, um Kosten einsparen zu können.
+ 8. Als Parkhauseigentümer möchte ich, dass der Preis automatisch errechnet wird, um Kosten sparen zu können.
+ 9. Als Notfallzuständiger benötige ich im Notfall sofortigen Zugang zum Parkhaus, um einen Notfall fachgerecht bearbeiten zu können.
+10. Als Systembetreiber möchte ich die Möglichkeit zum Backup haben, um die Daten sichern zu können.
+
+User Stories sollten ungefähr in folgender Reihenfolge implementiert werden: 6, 7, 8, 2, 3, 9, 4.
+Die User Stories 1, 5 und 10 haben eine zu geringe Priorität, um implementiert zu werden.

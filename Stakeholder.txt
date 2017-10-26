@@ -1,0 +1,39 @@
+Stakeholder:
+* Parkhauseigentümer (intern, passiv) 
+   * Die Digitalisierung kann Personalkosten einsparen.
+   * Kontrolle aus der Ferne möglich.
+* Parkhausmanager (intern, aktiv)
+   * Schnellere Auswertung der Einnahmen durch die Digitalisierung und Automatisierung der Daten.
+   * Dynamische Anpassung der Preise.
+   * effizienteres Arbeiten
+* Kunden (extern, aktiv) (angenehmer, einfacher)
+   * Schnellerer Ablauf
+   * Geringere Wartezeiten
+   * Weniger Zeit zum Suchen eines Stellplatzes benötigt
+* Gesellschaft (extern, passiv)
+   * Mehr Gewinne durch geringere Personalkosten.
+* Entwickler (extern, aktiv)
+   * Verdient Geld
+* Systembetreiber (intern, aktiv)
+   * Verdient Geld
+   * einfaches Bedienen, da alles zentral steuerbar ist.
+* Verkehrsamt (extern, passiv)
+   * Schnellerer Prozess sorgt für weniger Stau.
+* Ehemalige Mitarbeiter wie Kassierer, Einweiser, Schrankenwärter (intern, aktiv(vorher)/extern, passiv(nachher, eventuell))
+   * Verliert seinen Job (Nutzen?)
+   * eventuell Fortbildung/Umschulung
+* Notfallzuständiger (extern, passiv) (z.B. Feuerwehr, Notarzt)
+   * Kann schneller in Notfällen helfen.
+
+
+Disruptive Konzepte:
+Digitalisierung des Schrankenwärters, Kassierer und Einweiser ersetzt deren Arbeitsaufgaben.
+
+
+Kommunikationsplan:
+Gestaltung des Bezahlvorgangs: mit Kunde, Kassierer
+Details der Preisberechnung: mit Manager
+Anzeige von Daten: mit Manager, Systembetreiber
+Schrankensteuerung: mit Schrankenwärter, Verkehrsamt(z.B, zwecks Stauvermeidung vor der Einfahrt)
+Notfallbehandlung: mit Schrankenwärter, Notfallzuständiger
+Platzzuweisung: mit Einweiser
