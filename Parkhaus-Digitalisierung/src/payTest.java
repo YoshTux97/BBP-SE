@@ -15,6 +15,7 @@ public class payTest {
 		assertTrue(pay1.paying(1));
 	}
 	
+	@Test
 	public void paying_brokeCustomer_false() {
 		assertFalse(pay1.paying(2));
 	}
