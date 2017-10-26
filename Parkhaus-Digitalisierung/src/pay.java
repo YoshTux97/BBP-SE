@@ -1,4 +1,4 @@
 
 public interface pay {
-	public void paying(int id);
+	public boolean paying(int id);
 }
