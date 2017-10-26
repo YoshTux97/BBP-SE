@@ -3,15 +3,16 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class priceCalculatorTest {
-	priceCalculator pC1;
+public class gateTest {
+	gate gate1;
 
 	@Before
 	public void setUp() throws Exception {
 	}
 	
 	@Test
-	public void getPrice_oneDay_500() {
-		assertEquals(500, pC1.getPrice(1));
+	public void isClosed_closeGate_true() {
+		gate1.close();
+		assertTrue(gate1.isClosed());
 	}
 }
