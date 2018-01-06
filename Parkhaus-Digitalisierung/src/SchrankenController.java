@@ -11,6 +11,9 @@ public class SchrankenController implements gateControl {
 	public boolean entrance() {
 		if (parkhaus.hatPlatz()) {
 			System.out.println("Ihr Ticket hat die Nummer: " + parkhaus.ticketAusstellen());
+			schranke.open();
+			System.out.println("Auto fährt herein.");
+			schranke.close();
 			return true;
 		} else {
 			System.out.println("Das Parkhaus ist voll.");
@@ -22,7 +25,7 @@ public class SchrankenController implements gateControl {
 	public boolean exit(int TicketID) {
 		if (parkhaus.pruefeTicket(TicketID)) {
 			schranke.open();
-			System.out.println("Auto fährt heraus.");
+			System.out.println("Auto "+ TicketID + "fährt heraus.");
 			schranke.close();
 			parkhaus.freeSpot();
 			return true;

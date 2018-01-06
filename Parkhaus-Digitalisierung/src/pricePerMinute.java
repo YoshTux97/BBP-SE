@@ -15,7 +15,7 @@ public class pricePerMinute implements priceCalculator {
 	@Override
 	public long getPrice(Ticket ticket) {
 		Duration tmp = ticket.bestimmeParkzeit();
-		long minutes = tmp.toMinutes();//Eventuell aufzurunden, da angefangene Stunden zaehlen
+		long minutes = tmp.toMinutes();//Eventuell aufzurunden, da angefangene Minuten zaehlen
 		long seconds = tmp.getSeconds() % 60;
 		if (seconds > 0)
 			minutes++;

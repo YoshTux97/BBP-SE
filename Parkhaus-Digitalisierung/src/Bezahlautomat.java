@@ -22,6 +22,7 @@ public class Bezahlautomat implements Bezahleinrichtung {
 		ticket.ausfahrt = Instant.now();
 		ticket.preis = pC.getPrice(ticket);
 		System.out.printf("Zu bezahlen: " + ticket.preis/100 + ",%02d€%n", ticket.preis % 100);
+		System.out.println(id + " hat bezahlt.");
 		ticket.bezahlt = true;
 		return true;
 	}
