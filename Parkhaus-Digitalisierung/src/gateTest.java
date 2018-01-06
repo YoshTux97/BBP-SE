@@ -8,11 +8,16 @@ public class gateTest {
 
 	@Before
 	public void setUp() throws Exception {
+		gate1 = new gateKonkret();
 	}
 	
 	@Test
 	public void isClosed_closeGate_true() {
 		gate1.close();
 		assertTrue(gate1.isClosed());
+	}
+	public void isClosed_openGate_false() {
+		gate1.open();
+		assertFalse(gate1.isClosed());
 	}
 }

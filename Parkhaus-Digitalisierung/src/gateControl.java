@@ -1,6 +1,6 @@
 
 public interface gateControl {
 	public boolean entrance();
-	public boolean exit();
+	public boolean exit(int ticketID);
 	public void emergency();
 }
