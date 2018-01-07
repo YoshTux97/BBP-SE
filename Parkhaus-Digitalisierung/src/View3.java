@@ -14,6 +14,8 @@ public class View3 implements View {
 		Ticket meinTicket = modell.getTicket(TicketID);
 		if (!meinTicket.bezahlt)
 			aktPreis = modell.getPrice(meinTicket);
+		else
+			aktPreis = meinTicket.preis;
 	}
 	public long getResult() {
 		update();
