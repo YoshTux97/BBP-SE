@@ -13,13 +13,6 @@ public class ViewTest {
 	@Before
 	public void setUp() throws Exception {
 		p = new Parkhaus("Test", 10);
-		for (int i = 0; i < 10; ++i) {
-			p.ticketAusstellen();
-		}
-		Ticket[] tick = new Ticket[10];
-		for (int i = 0; i < 10; ++i) {
-			tick[i] = p.getTicket(i);
-		}
 		
 	}
 

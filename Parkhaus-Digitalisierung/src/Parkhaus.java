@@ -38,6 +38,16 @@ public class Parkhaus {
 			return -1;
 		}
 	}
+	
+	int addTicket(Ticket ticket) {
+		if (hatPlatz()) {
+			tickets.add(ticket);
+			++belPlaetze;
+			return tickets.size() - 1;
+		} else {
+			return -1;
+		}
+	}
 
 	public boolean pruefeTicket(int ticketID) {
 		if (ticketID >= tickets.size() || ticketID < 0) {
