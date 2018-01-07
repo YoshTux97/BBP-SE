@@ -51,4 +51,18 @@ public class Parkhaus {
 		else
 			throw new IllegalStateException();
 	}
+	
+	public boolean equals(Object o2) {
+		if (o2 == null)
+			return false;
+		if (o2.getClass().equals(getClass())) {
+			Parkhaus ph2 = (Parkhaus) o2;
+			return anzPlaetze == ph2.anzPlaetze && belPlaetze == ph2.belPlaetze && name.equals(ph2.name)
+					&& tickets.equals(ph2.tickets);
+			
+		} else {
+			return false;
+		}
+	
+	}
 }
