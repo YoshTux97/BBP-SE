@@ -17,4 +17,11 @@ public class Controller {
 		else
 			System.out.println("Hinzufügen fehlgeschlagen, ungültige TicketID.");
 	}
+	public long[] getViewResults() {
+		long[] tmp = new long[views.size()];
+		for (int i = 0; i < tmp.length; ++i) {
+			tmp[i] = views.get(i).getResult();
+		}
+		return tmp;
+	}
 }
