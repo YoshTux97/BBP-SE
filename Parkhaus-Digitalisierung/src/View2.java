@@ -1,6 +1,5 @@
 import java.time.Instant;
 import java.time.LocalDate;
-import java.util.stream.Stream;
 
 public class View2 implements ViewManager {
 	private ParkhausModell parkhausModell;
