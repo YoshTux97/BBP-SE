@@ -1,5 +1,4 @@
-import java.time.Instant;
-import java.time.LocalDate;
+import java.time.*;
 
 public class View1 implements ViewManager {
 	private ParkhausModell modell;
@@ -14,7 +13,7 @@ public class View1 implements ViewManager {
 	public void update() {
 		Tageseinnahmen = modell.getTicketsStream()
 				.filter(ticket -> ticket.bezahlt)
-				.filter(ticket -> null != ticket.ausfahrt && Instant.from(LocalDate.now()).isBefore(ticket.ausfahrt))
+				.filter(ticket -> null != ticket.ausfahrt && LocalDate.now().atStartOfDay().toInstant(ZoneOffset.ofHours(1)).isBefore(ticket.ausfahrt))
 				.mapToLong(ticket -> ticket.preis)
 				.sum();
 	}
