@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.*;
 
 public class ParkhausModell {
 	private Bezahleinrichtung pay;
@@ -6,6 +7,7 @@ public class ParkhausModell {
 	private gateControl gC;
 	private Parkhaus parkhaus;
 	private priceCalculator pC;
+	private List<View> views;
 	
 	public ParkhausModell() {
 		this("Parkhaus", 100, 5);
@@ -17,23 +19,41 @@ public class ParkhausModell {
 		pC = new pricePerMinute(pricePerMinuteInCents);
 		pay = new Bezahlautomat(parkhaus, pC);
 	}
+	public ParkhausModell(List<View> views) {
+		this();
+		this.views = views;
+	}
+	public ParkhausModell(String parkhausName, int anzParkPlaetze, int pricePerMinuteInCents, List<View> views) {
+		this(parkhausName, anzParkPlaetze, pricePerMinuteInCents);
+		this.views = views;
+	}
 	
 	public void setPriceCalculator(priceCalculator pC) {
 		this.pC = pC;
 		pay.setPriceCalculator(pC);
+		updateViews();
+	}
+	public long getPrice(Ticket ticket) {
+		return pC.getPrice(ticket);
 	}
 	//gateControl
 	public boolean einfahrt() {
-		return gC.entrance();
+		boolean tmp = gC.entrance();
+		updateViews();
+		return tmp;
 	}
 	public boolean ausfahrt(int ticketID) {
-		return gC.exit(ticketID);
+		boolean tmp = gC.exit(ticketID);
+		updateViews();
+		return tmp;
 	}
 	public void notfall() {
 		gC.emergency();
 	}
 	public boolean pay(int ticketID) {
-		return pay.paying(ticketID);
+		boolean tmp = pay.paying(ticketID);
+		updateViews();
+		return tmp;
 	}
 	//gate
 	void openGate() {
@@ -45,9 +65,6 @@ public class ParkhausModell {
 	boolean gateIsClosed() {
 		return gate.isClosed();
 	}
-	public long getPrice(Ticket ticket) {
-		return pC.getPrice(ticket);
-	}
 	//Parkhaus
 	public boolean parkhausHatPlatz() {
 		return parkhaus.hatPlatz();
@@ -55,6 +72,10 @@ public class ParkhausModell {
 	public String getName() { return parkhaus.getName(); }
 	public int getCapacity() { return parkhaus.getAnzPlaetze(); }
 	public boolean pruefeTicket(int ticketID) { return parkhaus.pruefeTicket(ticketID); }
+	/**
+	 * @param ticketID
+	 * @return a copy of the corresponding Ticket or null
+	 */
 	public Ticket getTicket(int ticketID) { 
 		Ticket tmp = parkhaus.getTicket(ticketID);
 		return tmp == null ? null : new Ticket(tmp.einfahrt, tmp.ausfahrt, tmp.bezahlt, tmp.preis);
@@ -70,5 +91,8 @@ public class ParkhausModell {
 	}
 	public void parkhausZustandEinlesen(String fileName) throws IOException {
 		parkhaus.zustandEinlesen(fileName);
+	}
+	public void updateViews() {
+		views.forEach(view -> view.update());
 	}
 }
