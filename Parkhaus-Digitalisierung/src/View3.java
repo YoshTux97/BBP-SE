@@ -1,7 +1,7 @@
 
 public class View3 implements View {
 	int TicketID;
-	public long aktPreis;
+	private long aktPreis;
 	private ParkhausModell modell;
 	
 	public View3(ParkhausModell modell, int TicketID) {

@@ -3,7 +3,7 @@ import java.time.LocalDate;
 
 public class View1 implements ViewManager {
 	private ParkhausModell modell;
-	public long Tageseinnahmen;
+	private long Tageseinnahmen;
 	
 	public View1(ParkhausModell modell) {
 		this.modell = modell;
