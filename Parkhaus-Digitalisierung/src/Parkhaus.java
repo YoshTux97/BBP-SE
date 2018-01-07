@@ -46,7 +46,7 @@ public class Parkhaus {
 	}
 
 	public void freeSpot() {
-		if (belPlaetze >= 0)
+		if (belPlaetze > 0)
 			--belPlaetze;
 		else
 			throw new IllegalStateException();
