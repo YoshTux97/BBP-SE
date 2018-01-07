@@ -14,4 +14,8 @@ public class View3 implements View {
 		Ticket meinTicket = modell.getTicket(TicketID);
 		aktPreis = modell.getPrice(meinTicket);
 	}
+	public long getResult() {
+		update();
+		return aktPreis;
+	}
 }
