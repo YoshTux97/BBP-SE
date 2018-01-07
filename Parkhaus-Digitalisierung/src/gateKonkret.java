@@ -28,5 +28,4 @@ public class gateKonkret implements gate {
 	public boolean isClosed() {
 		return offen;
 	}
-
 }
