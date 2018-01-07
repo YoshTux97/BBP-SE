@@ -1,5 +1,5 @@
 
-public class View2 extends ViewManager {
+public class View2 implements ViewManager {
 
 	@Override
 	public void update() {
