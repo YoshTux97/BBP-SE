@@ -20,6 +20,13 @@ public class ParkhausModell {
 		pC = new pricePerMinute(pricePerMinuteInCents);
 		pay = new Bezahlautomat(parkhaus, pC);
 	}
+	ParkhausModell(int pricePerMinuteInCents, Parkhaus parkhaus) {
+		this.parkhaus = parkhaus;
+		gate = new gateKonkret();
+		gC = new SchrankenController(gate, parkhaus);
+		pC = new pricePerMinute(pricePerMinuteInCents);
+		pay = new Bezahlautomat(parkhaus, pC);
+	}
 	
 	public void setPriceCalculator(priceCalculator pC) {
 		this.pC = pC;
