@@ -18,4 +18,7 @@ public class View1 implements ViewManager {
 				.mapToLong(ticket -> ticket.preis)
 				.sum();
 	}
+	public long getResult() {
+		return Tageseinnahmen;
+	}
 }
