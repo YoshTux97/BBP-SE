@@ -1,4 +1,4 @@
 
-public abstract class ViewManager implements View{
+public abstract class ViewManager implements View {
 	
 }
