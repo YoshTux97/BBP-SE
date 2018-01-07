@@ -20,14 +20,6 @@ public class ParkhausModell {
 		pC = new pricePerMinute(pricePerMinuteInCents);
 		pay = new Bezahlautomat(parkhaus, pC);
 	}
-	public ParkhausModell(List<View> views) {
-		this();
-		this.views = views;
-	}
-	public ParkhausModell(String parkhausName, int anzParkPlaetze, int pricePerMinuteInCents, List<View> views) {
-		this(parkhausName, anzParkPlaetze, pricePerMinuteInCents);
-		this.views = views;
-	}
 	
 	public void setPriceCalculator(priceCalculator pC) {
 		this.pC = pC;
@@ -75,4 +67,5 @@ public class ParkhausModell {
 	public void parkhausZustandEinlesen(String fileName) throws IOException { parkhaus.zustandEinlesen(fileName); }
 	public void updateViews() {	views.forEach(view -> view.update()); }
 	public Stream<Ticket> getTicketsStream() { return parkhaus.getTicketsStream(); }
+	public void setViews(List<View> views) { this.views = views; }
 }

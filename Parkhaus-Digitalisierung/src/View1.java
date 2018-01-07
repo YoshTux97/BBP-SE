@@ -14,7 +14,7 @@ public class View1 implements ViewManager {
 	public void update() {
 		Tageseinnahmen = modell.getTicketsStream()
 				.filter(ticket -> ticket.bezahlt)
-				.filter(ticket -> null != ticket.ausfahrt && Instant.from(LocalDate.now()).isAfter(ticket.ausfahrt))
+				.filter(ticket -> null != ticket.ausfahrt && Instant.from(LocalDate.now()).isBefore(ticket.ausfahrt))
 				.mapToLong(ticket -> ticket.preis)
 				.sum();
 	}
