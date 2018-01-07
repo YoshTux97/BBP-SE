@@ -10,7 +10,11 @@ public class Controller {
 		modell.setViews(views);
 		views.add(new View1(modell));
 		views.add(new View2(modell));
-		for (int i = 0; i < TicketIDs.length; ++i)
-			views.add(new View3(modell, TicketIDs[i]));
+	}
+	public void addCustomerView(int TicketID) {
+		if (modell.getTicket(TicketID) != null)
+			views.add(new View3(modell, TicketID));
+		else
+			System.out.println("Hinzufügen fehlgeschlagen, ungültige TicketID.");
 	}
 }
