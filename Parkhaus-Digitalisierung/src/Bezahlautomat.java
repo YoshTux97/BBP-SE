@@ -27,4 +27,9 @@ public class Bezahlautomat implements Bezahleinrichtung {
 		return true;
 	}
 
+	@Override
+	public void setPriceCalculator(priceCalculator pC) {
+		this.pC = pC;
+	}
+
 }

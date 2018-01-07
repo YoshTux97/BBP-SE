@@ -7,10 +7,11 @@ class Ticket {
 	public Ticket() {
 		einfahrt = Instant.now();
 	}
-	public Ticket(Instant einfahrt, Instant ausfahrt, boolean bezahlt) {
+	public Ticket(Instant einfahrt, Instant ausfahrt, boolean bezahlt, long preis) {
 		this.einfahrt = einfahrt;
 		this.ausfahrt = ausfahrt;
 		this.bezahlt = bezahlt;
+		this.preis = preis;
 	}
 	Duration bestimmeParkzeit() {
 		if (ausfahrt != null)

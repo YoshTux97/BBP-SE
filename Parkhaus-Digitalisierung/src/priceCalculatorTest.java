@@ -17,7 +17,7 @@ public class priceCalculatorTest {
 	
 	@Test
 	public void getPrice_threeHours_500() {
-		assertEquals(300, pC1.getPrice(new Ticket(Instant.ofEpochSecond(0), Instant.ofEpochSecond(60*60*3 - 10), false)));
+		assertEquals(300, pC1.getPrice(new Ticket(Instant.ofEpochSecond(0), Instant.ofEpochSecond(60*60*3 - 10), false, -1)));
 	}
 	
 	@Test

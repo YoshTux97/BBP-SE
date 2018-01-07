@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Stream;
 
 import com.thoughtworks.xstream.XStream;
 public class Parkhaus {
@@ -28,7 +29,7 @@ public class Parkhaus {
 	public String getName() { return name; }
 	public int getAnzPlaetze() { return anzPlaetze; }
 
-	public int ticketAusstellen() {
+	int ticketAusstellen() {
 		if (hatPlatz()) {
 			tickets.add(new Ticket());
 			++belPlaetze;
@@ -49,8 +50,12 @@ public class Parkhaus {
 	public Ticket getTicket(int id) {
 		return id >= tickets.size() || id < 0 ? null : tickets.get(id);
 	}
+	
+	Stream<Ticket> getTicketsStream() {
+		return tickets.stream();
+	}
 
-	public void freeSpot() {
+	void freeSpot() {
 		if (belPlaetze > 0)
 			--belPlaetze;
 		else
