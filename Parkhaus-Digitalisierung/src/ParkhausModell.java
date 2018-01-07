@@ -72,7 +72,7 @@ public class ParkhausModell {
 	public void parkhausZustandSpeichern(String fileName) throws IOException{ parkhaus.zustandSpeichern(fileName); }
 	public void parkhausZustandEinlesen() throws IOException { parkhaus.zustandEinlesen(); }
 	public void parkhausZustandEinlesen(String fileName) throws IOException { parkhaus.zustandEinlesen(fileName); }
-	public void updateViews() {	views.forEach(view -> view.update()); }
+	public void updateViews() {	if(views != null) views.forEach(view -> view.update()); }
 	public Stream<Ticket> getTicketsStream() { return parkhaus.getTicketsStream(); }
 	public void setViews(List<View> views) { this.views = views; }
 }
