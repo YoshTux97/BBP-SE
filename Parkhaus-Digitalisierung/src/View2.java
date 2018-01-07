@@ -3,7 +3,7 @@ import java.time.LocalDate;
 
 public class View2 implements ViewManager {
 	private ParkhausModell parkhausModell;
-	long wocheneinnahmen;
+	private long wocheneinnahmen;
 	
 	public View2(ParkhausModell parkhausModell) {
 		this.parkhausModell = parkhausModell;
@@ -17,6 +17,11 @@ public class View2 implements ViewManager {
 				.filter(ticket -> ticket.ausfahrt != null && Instant.from(getCurrentWochenanfang()).isBefore(ticket.ausfahrt))
 				.mapToLong(ticket -> ticket.preis)
 				.sum();
+	}
+	
+	@Override
+	public long getResult() {
+		return wocheneinnahmen;
 	}
 	
 	private LocalDate getCurrentWochenanfang() {
