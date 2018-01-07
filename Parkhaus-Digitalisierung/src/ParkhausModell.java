@@ -33,9 +33,7 @@ public class ParkhausModell {
 		pay.setPriceCalculator(pC);
 		updateViews();
 	}
-	public long getPrice(Ticket ticket) {
-		return pC.getPrice(ticket);
-	}
+	public long getPrice(Ticket ticket) { return pC.getPrice(ticket); }
 	//gateControl
 	public boolean einfahrt() {
 		boolean tmp = gC.entrance();
@@ -47,31 +45,21 @@ public class ParkhausModell {
 		updateViews();
 		return tmp;
 	}
-	public void notfall() {
-		gC.emergency();
-	}
+	public void notfall() {	gC.emergency();	}
 	public boolean pay(int ticketID) {
 		boolean tmp = pay.paying(ticketID);
 		updateViews();
 		return tmp;
 	}
 	//gate
-	void openGate() {
-		gate.open();
-	}
-	void closeGate() {
-		gate.close();
-	}
-	boolean gateIsClosed() {
-		return gate.isClosed();
-	}
+	void openGate() { gate.open(); }
+	void closeGate() { gate.close(); }
+	boolean gateIsClosed() { return gate.isClosed(); }
 	//Parkhaus
-	public boolean parkhausHatPlatz() {
-		return parkhaus.hatPlatz();
-	}
+	public boolean parkhausHatPlatz() {	return parkhaus.hatPlatz();	}
 	public String getName() { return parkhaus.getName(); }
-	public int getCapacity() { return parkhaus.getAnzPlaetze(); }
-	public boolean pruefeTicket(int ticketID) { return parkhaus.pruefeTicket(ticketID); }
+	public int getCapacity() { return parkhaus.getAnzPlaetze();	}
+	public boolean pruefeTicket(int ticketID) {	return parkhaus.pruefeTicket(ticketID);	}
 	/**
 	 * @param ticketID
 	 * @return a copy of the corresponding Ticket or null
@@ -80,19 +68,9 @@ public class ParkhausModell {
 		Ticket tmp = parkhaus.getTicket(ticketID);
 		return tmp == null ? null : new Ticket(tmp.einfahrt, tmp.ausfahrt, tmp.bezahlt, tmp.preis);
 	}
-	public void parkhausZustandSpeichern() throws IOException{
-		parkhaus.zustandSpeichern();
-	}
-	public void parkhausZustandSpeichern(String fileName) throws IOException{
-		parkhaus.zustandSpeichern(fileName);
-	}
-	public void parkhausZustandEinlesen() throws IOException {
-		parkhaus.zustandEinlesen();
-	}
-	public void parkhausZustandEinlesen(String fileName) throws IOException {
-		parkhaus.zustandEinlesen(fileName);
-	}
-	public void updateViews() {
-		views.forEach(view -> view.update());
-	}
+	public void parkhausZustandSpeichern() throws IOException{ parkhaus.zustandSpeichern();	}
+	public void parkhausZustandSpeichern(String fileName) throws IOException{ parkhaus.zustandSpeichern(fileName); }
+	public void parkhausZustandEinlesen() throws IOException { parkhaus.zustandEinlesen(); }
+	public void parkhausZustandEinlesen(String fileName) throws IOException { parkhaus.zustandEinlesen(fileName); }
+	public void updateViews() {	views.forEach(view -> view.update()); }
 }
