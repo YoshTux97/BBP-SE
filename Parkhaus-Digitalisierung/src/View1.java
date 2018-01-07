@@ -2,12 +2,10 @@ import java.time.Instant;
 import java.time.LocalDate;
 
 public class View1 implements ViewManager {
-	private Controller cont;
 	private ParkhausModell modell;
 	public long Tageseinnahmen;
 	
-	public View1(Controller cont, ParkhausModell modell) {
-		this.cont = cont;
+	public View1(ParkhausModell modell) {
 		this.modell = modell;
 		update();
 	}
