@@ -11,6 +11,7 @@ public class View3 implements View {
 	}
 	@Override
 	public void update() {
-		
+		Ticket meinTicket = modell.getTicket(TicketID);
+		aktPreis = modell.getPrice(meinTicket);
 	}
 }
