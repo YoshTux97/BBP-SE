@@ -34,7 +34,7 @@ public class Parkhaus {
 	}
 
 	public boolean pruefeTicket(int ticketID) {
-		if (ticketID >= tickets.size()) {
+		if (ticketID >= tickets.size() || ticketID < 0) {
 			System.out.println("Ungültige Ticket-ID.");
 			return false;
 		}
@@ -42,7 +42,7 @@ public class Parkhaus {
 	}
 
 	public Ticket getTicket(int id) {
-		return id >= tickets.size() ? null : tickets.get(id);
+		return id >= tickets.size() || id < 0 ? null : tickets.get(id);
 	}
 
 	public void freeSpot() {
