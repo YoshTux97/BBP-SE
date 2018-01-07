@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class ParkhausModell {
 	private Bezahleinrichtung pay;
@@ -73,4 +74,5 @@ public class ParkhausModell {
 	public void parkhausZustandEinlesen() throws IOException { parkhaus.zustandEinlesen(); }
 	public void parkhausZustandEinlesen(String fileName) throws IOException { parkhaus.zustandEinlesen(fileName); }
 	public void updateViews() {	views.forEach(view -> view.update()); }
+	public Stream<Ticket> getTicketsStream() { return parkhaus.getTicketsStream(); }
 }
