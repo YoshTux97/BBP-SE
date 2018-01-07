@@ -1,4 +1,9 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
+
+import com.thoughtworks.xstream.XStream;
 public class Parkhaus {
 	private int anzPlaetze;
 	private int belPlaetze;
@@ -64,5 +69,34 @@ public class Parkhaus {
 			return false;
 		}
 	
+	}
+	
+	public void zustandSpeichern() throws IOException {
+		zustandSpeichern("Parkhaus_"+name+".xml");
+	}
+	
+	public void zustandSpeichern(String fileName) throws IOException {
+		XStream xstream = new XStream();
+		xstream.toXML(this, new FileWriter(fileName));
+	}
+	
+	public String toXML() {
+		XStream xstream = new XStream();
+		return xstream.toXML(this);
+	}
+	
+	public void zustandEinlesen() throws IOException {
+		zustandEinlesen("Parkhaus_"+name+".xml");
+	}
+	
+	public void zustandEinlesen(String fileName) throws IOException {
+		XStream xstream = new XStream();
+		XStream.setupDefaultSecurity(xstream);
+		xstream.allowTypes(new Class[] {Parkhaus.class, Ticket.class});
+		Parkhaus tmpP = (Parkhaus) xstream.fromXML(new File(fileName));
+		anzPlaetze = tmpP.anzPlaetze;
+		belPlaetze = tmpP.belPlaetze;
+		name = tmpP.name;
+		tickets = tmpP.tickets;
 	}
 }
