@@ -1,4 +1,3 @@
-import java.time.Instant;
 import java.time.LocalDate;
 
 public class View2 implements ViewManager {
@@ -14,9 +13,10 @@ public class View2 implements ViewManager {
 	public void update() {
 		wocheneinnahmen = parkhausModell.getTicketsStream()
 				.filter(ticket -> ticket.bezahlt)
-				.filter(ticket -> ticket.ausfahrt != null && Instant.from(getCurrentWochenanfang()).isBefore(ticket.ausfahrt))
+				.filter(ticket -> ticket.ausfahrt != null && getCurrentWochenanfang().atStartOfDay().isBefore(ticket.ausfahrt))
 				.mapToLong(ticket -> ticket.preis)
 				.sum();
+		System.out.println("Wocheneinnahmen: " + wocheneinnahmen);
 	}
 	
 	@Override

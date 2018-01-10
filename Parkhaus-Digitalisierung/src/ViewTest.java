@@ -1,8 +1,5 @@
 import static org.junit.Assert.*;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
+import java.time.*;
 import java.util.Arrays;
 
 import org.junit.Before;
@@ -27,31 +24,33 @@ public class ViewTest {
 		p.ticketAusstellen();
 		p.ticketAusstellen();
 		
-		ZoneOffset offset = ZoneOffset.ofHours(1);
-		Instant currentTime = Instant.now();
-		LocalDate currentDate = LocalDateTime.ofInstant(currentTime, offset).toLocalDate();
+		LocalDateTime currentTime = LocalDateTime.now();
+		LocalDate currentDate = currentTime.toLocalDate();
 		
 		Ticket ticket1;
-		Instant leavingTime = currentDate.minusDays(2).atStartOfDay().toInstant(offset);
-		Instant entranceTime = Instant.from(leavingTime).minusSeconds(6000);
+		LocalDateTime leavingTime = currentDate.minusDays(currentDate.getDayOfWeek().getValue() - 1).atStartOfDay().plusSeconds(1);
+		LocalDateTime entranceTime = leavingTime.minusMinutes(100);
 		ticket1 = new Ticket(entranceTime, leavingTime, true, 100);
 		p.addTicket(ticket1);
 		
 		Ticket ticket2;
-		leavingTime = Instant.from(currentDate.minusDays(10));
-		entranceTime = Instant.from(leavingTime).minusSeconds(6000);
+		leavingTime = currentDate.minusDays(10).atStartOfDay();
+		entranceTime = leavingTime.minusMinutes(100);
 		ticket2 = new Ticket(entranceTime, leavingTime, true, 1000000);
 		p.addTicket(ticket2);
 		
 		Ticket ticket3;
-		entranceTime = Instant.from(currentDate.minusDays(1));
+		entranceTime = currentDate.atStartOfDay();
 		ticket3 = new Ticket();
 		ticket3.einfahrt = entranceTime;
+		ticket3.ausfahrt = entranceTime.plusHours(3);
+		ticket3.preis = 100000;
+		ticket3.bezahlt = true;
 		p.addTicket(ticket3);
 		
 		Ticket ticket4;
 		ticket4 = new Ticket();
-		ticket4.einfahrt = entranceTime;
+		ticket4.einfahrt = currentTime.minusMinutes(40);
 		p.addTicket(ticket4);
 		
 		pm = new ParkhausModell(10, p);
@@ -68,14 +67,15 @@ public class ViewTest {
 
 
 	@Test
-	public final void test() {
-		assertEquals(actual, v1.getResult());
-		assertEquals(actual, v2.getResult());
+	public final void test() throws InterruptedException {
+		assertEquals(100000, v1.getResult());
+		assertEquals(100100, v2.getResult());
+		Thread.sleep(1000);
 		assertEquals(10, v3_0.getResult());
 		assertEquals(10, v3_1.getResult());
 		assertEquals(100, v3_2.getResult());
 		assertEquals(1000000, v3_3.getResult());
-		assertEquals(actual, v3_4.getResult());
-		assertEquals(actual, v3_5.getResult());
+		assertEquals(100000, v3_4.getResult());
+		assertEquals(410, v3_5.getResult());
 	}
 }

@@ -1,6 +1,6 @@
 import static org.junit.Assert.*;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,14 +17,17 @@ public class priceCalculatorTest {
 	
 	@Test
 	public void getPrice_threeHours_500() {
-		assertEquals(300, pC1.getPrice(new Ticket(Instant.ofEpochSecond(0), Instant.ofEpochSecond(60*60*3 - 10), false, -1)));
+		assertEquals(300, pC1.getPrice(new Ticket(LocalDateTime.of(2000, 1, 1, 0, 0, 0), 
+				LocalDateTime.of(2000, 1, 1, 0, 0, 0).plusHours(3).minusSeconds(10), false, -1)));
 	}
 	
 	@Test
-	public void getPrice_110Seconds_100() throws InterruptedException {
+	public void getPrice_70Seconds_100() throws InterruptedException {
+		LocalDateTime now = LocalDateTime.now();
 		Ticket t1 = new Ticket();
-		Thread.sleep(10000);
-		t1.ausfahrt = Instant.now().plusSeconds(60);
+		Thread.sleep(10000);//10 Seconds
+		assertEquals(50, pC2.getPrice(t1));
+		t1.ausfahrt = now.plusSeconds(70);
 		assertEquals(100, pC2.getPrice(t1));
 	}
 }

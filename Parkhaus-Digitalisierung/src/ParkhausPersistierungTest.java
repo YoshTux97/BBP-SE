@@ -1,5 +1,5 @@
 import static org.junit.Assert.*;
-import java.time.Instant;
+import java.time.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +14,7 @@ public class ParkhausPersistierungTest {
 		p1.ticketAusstellen();
 		p1.getTicket(0).bezahlt = true;
 		p1.getTicket(0).preis = 150;
-		p1.getTicket(0).ausfahrt = Instant.now();
+		p1.getTicket(0).ausfahrt = LocalDateTime.now();
 		p2 = new Parkhaus("p2", 5);
 		p2.ticketAusstellen(); p2.ticketAusstellen(); p2.ticketAusstellen();
 		p2.freeSpot();

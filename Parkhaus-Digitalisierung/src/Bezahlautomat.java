@@ -1,4 +1,4 @@
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 public class Bezahlautomat implements Bezahleinrichtung {
 	private Parkhaus parkhaus;
@@ -19,7 +19,7 @@ public class Bezahlautomat implements Bezahleinrichtung {
 			System.out.println("Diese Ticket wurde bereits bezahlt.");
 			return false;
 		}
-		ticket.ausfahrt = Instant.now();
+		ticket.ausfahrt = LocalDateTime.now();
 		ticket.preis = pC.getPrice(ticket);
 		System.out.printf("Zu bezahlen: " + ticket.preis/100 + ",%02d€%n", ticket.preis % 100);
 		System.out.println(id + " hat bezahlt.");

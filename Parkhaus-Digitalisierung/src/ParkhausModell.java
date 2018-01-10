@@ -35,8 +35,8 @@ public class ParkhausModell {
 	}
 	public long getPrice(Ticket ticket) { return pC.getPrice(ticket); }
 	//gateControl
-	public boolean einfahrt() {
-		boolean tmp = gC.entrance();
+	public int einfahrt() {
+		int tmp = gC.entrance();
 		updateViews();
 		return tmp;
 	}
@@ -74,5 +74,6 @@ public class ParkhausModell {
 	public void parkhausZustandEinlesen(String fileName) throws IOException { parkhaus.zustandEinlesen(fileName); }
 	public void updateViews() {	if(views != null) views.forEach(view -> view.update()); }
 	public Stream<Ticket> getTicketsStream() { return parkhaus.getTicketsStream(); }
-	public void setViews(List<View> views) { this.views = views; }
+	void setViews(List<View> views) { this.views = views; }
+	public void addView(View view) { views.add(view); }
 }

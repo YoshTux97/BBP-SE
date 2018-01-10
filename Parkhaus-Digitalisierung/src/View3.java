@@ -11,11 +11,14 @@ public class View3 implements View {
 	}
 	@Override
 	public void update() {
+		long before = aktPreis;
 		Ticket meinTicket = modell.getTicket(TicketID);
 		if (!meinTicket.bezahlt)
 			aktPreis = modell.getPrice(meinTicket);
 		else
 			aktPreis = meinTicket.preis;
+		if(before != aktPreis)
+			System.out.println("Das Ticket mit der Nummer " + TicketID + " kostet nun " + aktPreis + ".");
 	}
 	public long getResult() {
 		update();

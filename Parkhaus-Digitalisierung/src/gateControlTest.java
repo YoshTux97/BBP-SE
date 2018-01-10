@@ -17,13 +17,13 @@ public class gateControlTest {
 
 	@Test
 	public final void testEntrance() {
-		assertTrue(gC.entrance());
-		assertTrue(gC.entrance());
-		assertFalse(gC.entrance());
+		assertEquals(0, gC.entrance());
+		assertEquals(1, gC.entrance());
+		assertEquals(-1, gC.entrance());
 		b1.paying(0);
 		gC.exit(0);
-		assertTrue(gC.entrance());
-		assertFalse(gC.entrance());
+		assertEquals(2, gC.entrance());
+		assertEquals(-1, gC.entrance());
 	}
 
 	@Test

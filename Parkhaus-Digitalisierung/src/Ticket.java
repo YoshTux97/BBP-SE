@@ -1,13 +1,13 @@
 import java.time.*;
 class Ticket {
-	Instant einfahrt;
-	Instant ausfahrt;
+	LocalDateTime einfahrt;
+	LocalDateTime ausfahrt;
 	boolean bezahlt;
 	long preis;
 	public Ticket() {
-		einfahrt = Instant.now();
+		einfahrt = LocalDateTime.now();
 	}
-	public Ticket(Instant einfahrt, Instant ausfahrt, boolean bezahlt, long preis) {
+	public Ticket(LocalDateTime einfahrt, LocalDateTime ausfahrt, boolean bezahlt, long preis) {
 		this.einfahrt = einfahrt;
 		this.ausfahrt = ausfahrt;
 		this.bezahlt = bezahlt;
@@ -17,7 +17,7 @@ class Ticket {
 		if (ausfahrt != null)
 			return Duration.between(einfahrt, ausfahrt).abs();
 		else
-			return Duration.between(einfahrt, Instant.now()).abs();
+			return Duration.between(einfahrt, LocalDateTime.now()).abs();
 	}
 	
 	@Override
