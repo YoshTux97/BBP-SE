@@ -25,7 +25,7 @@ public class priceCalculatorTest {
 	public void getPrice_70Seconds_100() throws InterruptedException {
 		LocalDateTime now = LocalDateTime.now();
 		Ticket t1 = new Ticket();
-		Thread.sleep(10000);//10 Seconds
+		Thread.sleep(1000);//1 Second
 		assertEquals(50, pC2.getPrice(t1));
 		t1.ausfahrt = now.plusSeconds(70);
 		assertEquals(100, pC2.getPrice(t1));
