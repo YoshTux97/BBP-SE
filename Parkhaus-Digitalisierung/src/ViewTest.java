@@ -28,7 +28,7 @@ public class ViewTest {
 		LocalDate currentDate = currentTime.toLocalDate();
 		
 		Ticket ticket1;
-		LocalDateTime leavingTime = currentDate.minusDays(currentDate.getDayOfWeek().getValue() - 1).atStartOfDay().plusSeconds(1);
+		LocalDateTime leavingTime = currentDate.minusDays(currentDate.getDayOfWeek().getValue() - 1).atStartOfDay();
 		LocalDateTime entranceTime = leavingTime.minusMinutes(100);
 		ticket1 = new Ticket(entranceTime, leavingTime, true, 100);
 		p.addTicket(ticket1);
