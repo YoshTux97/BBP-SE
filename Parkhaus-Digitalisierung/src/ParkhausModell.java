@@ -74,6 +74,7 @@ public class ParkhausModell {
 	public void parkhausZustandEinlesen(String fileName) throws IOException { parkhaus.zustandEinlesen(fileName); }
 	public void updateViews() {	if(views != null) views.forEach(view -> view.update()); }
 	public Stream<Ticket> getTicketsStream() { return parkhaus.getTicketsStream(); }
+	List<Ticket> getPaidTickets() { return parkhaus.getPaidTickets(); }
 	void setViews(List<View> views) { this.views = views; }
 	public void addView(View view) { views.add(view); }
 }

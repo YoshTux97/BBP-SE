@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import com.thoughtworks.xstream.XStream;
@@ -63,6 +64,12 @@ public class Parkhaus {
 	
 	Stream<Ticket> getTicketsStream() {
 		return tickets.stream();
+	}
+	
+	List<Ticket> getPaidTickets() {
+		return tickets.stream()
+				.filter(ticket -> ticket.bezahlt)
+				.collect(Collectors.toList());
 	}
 
 	void freeSpot() {
