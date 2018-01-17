@@ -7,9 +7,10 @@ public abstract class EinnahmenTemplate {
 		return berechnen(pm.getTicketsStream());
 	}
 	long berechnen(Stream<Ticket> ticketStream) {
-		return zeitFiltern(ticketStream.filter(ticket -> ticket.bezahlt))
-				.mapToLong(ticket ->  ticket.preis)
+		return ticketStream.filter(ticket -> filtern(ticket))
+				.mapToLong(ticket -> preisBerechnen(ticket))
 				.sum();
 	}
-	abstract Stream<Ticket> zeitFiltern(Stream<Ticket> ticketStream);
+	abstract long preisBerechnen(Ticket t);
+	abstract boolean filtern(Ticket t);
 }

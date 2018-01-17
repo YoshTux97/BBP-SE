@@ -1,10 +1,10 @@
 
-public class View3 implements View {
+public class ViewTicketPreis implements View {
 	int TicketID;
 	private long aktPreis;
 	private ParkhausModell modell;
 	
-	public View3(ParkhausModell modell, int TicketID) {
+	public ViewTicketPreis(ParkhausModell modell, int TicketID) {
 		this.modell = modell;
 		this.TicketID = TicketID;
 		update();

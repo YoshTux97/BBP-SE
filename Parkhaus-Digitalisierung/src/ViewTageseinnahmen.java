@@ -1,22 +1,25 @@
 import java.time.*;
 
-public class View1 implements ViewManager {
+public class ViewTageseinnahmen implements ViewManager {
 	private ParkhausModell modell;
 	private long Tageseinnahmen;
 	
-	public View1(ParkhausModell modell) {
+	public ViewTageseinnahmen(ParkhausModell modell) {
 		this.modell = modell;
 		update();
 	}
 
 	@Override
 	public void update() {
-		Tageseinnahmen = modell.getTicketsStream()
+		long tmp = modell.getTicketsStream()
 				.filter(ticket -> ticket.bezahlt)
 				.filter(ticket -> null != ticket.ausfahrt && LocalDate.now().atStartOfDay().isBefore(ticket.ausfahrt))
 				.mapToLong(ticket -> ticket.preis)
 				.sum();
-		System.out.println("Tageseinnahmen: " + Tageseinnahmen);
+		if (tmp != Tageseinnahmen) {
+			Tageseinnahmen = tmp;
+			System.out.println("Tageseinnahmen: " + Tageseinnahmen);
+		}
 	}
 	public long getResult() {
 		return Tageseinnahmen;

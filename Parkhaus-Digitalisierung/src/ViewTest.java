@@ -8,14 +8,14 @@ import org.junit.Test;
 public class ViewTest {
 	Parkhaus p;
 	ParkhausModell pm;
-	View v1;
-	View v2;
-	View v3_0;
-	View v3_1;
-	View v3_2;
-	View v3_3;
-	View v3_4;
-	View v3_5;
+	View vT;
+	View vW;
+	View vKP_0;
+	View vKP_1;
+	View vKP_2;
+	View vKP_3;
+	View vKP_4;
+	View vKP_5;
 
 
 	@Before
@@ -54,28 +54,28 @@ public class ViewTest {
 		p.addTicket(ticket4);
 		
 		pm = new ParkhausModell(10, p);
-		v1 = new View1(pm);
-		v2 = new View2(pm);
-		v3_0 = new View3(pm, 0);
-		v3_1 = new View3(pm, 1);
-		v3_2 = new View3(pm, 2);
-		v3_3 = new View3(pm, 3);
-		v3_4 = new View3(pm, 4);
-		v3_5 = new View3(pm, 5);
-		pm.setViews(Arrays.asList(v1, v2, v3_0, v3_1, v3_2, v3_3, v3_4, v3_5));
+		vT = new ViewTageseinnahmen(pm);
+		vW = new ViewWocheneinnahmen(pm);
+		vKP_0 = new ViewTicketPreis(pm, 0);
+		vKP_1 = new ViewTicketPreis(pm, 1);
+		vKP_2 = new ViewTicketPreis(pm, 2);
+		vKP_3 = new ViewTicketPreis(pm, 3);
+		vKP_4 = new ViewTicketPreis(pm, 4);
+		vKP_5 = new ViewTicketPreis(pm, 5);
+		pm.setViews(Arrays.asList(vT, vW, vKP_0, vKP_1, vKP_2, vKP_3, vKP_4, vKP_5));
 	}
 
 
 	@Test
 	public final void test() throws InterruptedException {
-		assertEquals(100000, v1.getResult());
-		assertEquals(100100, v2.getResult());
+		assertEquals(100000, vT.getResult());
+		assertEquals(100100, vW.getResult());
 		Thread.sleep(1000);
-		assertEquals(10, v3_0.getResult());
-		assertEquals(10, v3_1.getResult());
-		assertEquals(100, v3_2.getResult());
-		assertEquals(1000000, v3_3.getResult());
-		assertEquals(100000, v3_4.getResult());
-		assertEquals(410, v3_5.getResult());
+		assertEquals(10, vKP_0.getResult());
+		assertEquals(10, vKP_1.getResult());
+		assertEquals(100, vKP_2.getResult());
+		assertEquals(1000000, vKP_3.getResult());
+		assertEquals(100000, vKP_4.getResult());
+		assertEquals(410, vKP_5.getResult());
 	}
 }
