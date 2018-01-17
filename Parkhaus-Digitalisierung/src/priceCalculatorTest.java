@@ -8,11 +8,13 @@ import org.junit.Test;
 public class priceCalculatorTest {
 	priceCalculator pC1;
 	priceCalculator pC2;
+	priceCalculator pC3;
 
 	@Before
 	public void setUp() throws Exception {
 		pC1 = new pricePerHour(100);
 		pC2 = new pricePerMinute(50);
+		pC3 = new pricePerSecond(10);
 	}
 	
 	@Test
@@ -29,5 +31,10 @@ public class priceCalculatorTest {
 		assertEquals(50, pC2.getPrice(t1));
 		t1.ausfahrt = now.plusSeconds(70);
 		assertEquals(100, pC2.getPrice(t1));
+	}
+	@Test
+	public void getPrice_pricePerSecond() {
+		assertEquals(50, pC3.getPrice(new Ticket(LocalDateTime.of(2000, 1, 1, 0, 0, 0), 
+				LocalDateTime.of(2000, 1, 1, 0, 0, 0).plusSeconds(5), false, -1)));
 	}
 }
