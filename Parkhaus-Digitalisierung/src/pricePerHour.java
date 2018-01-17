@@ -6,11 +6,6 @@ public class pricePerHour implements priceCalculator {
 		this.centsPerHour = cents;
 	}
 	
-	public void setPricePerHour(int cents) {
-		if (cents >= 0)
-			this.centsPerHour = cents;
-	}
-
 	@Override
 	public long getPrice(Ticket ticket) {
 		Duration tmp = ticket.bestimmeParkzeit();
@@ -19,6 +14,11 @@ public class pricePerHour implements priceCalculator {
 		if (minutes > 0)
 			hours++;
 		return hours * centsPerHour;
+	}
+
+	public void setPricePerHour(int cents) {
+		if (cents >= 0)
+			this.centsPerHour = cents;
 	}
 
 }
