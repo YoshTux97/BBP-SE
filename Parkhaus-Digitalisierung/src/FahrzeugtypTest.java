@@ -13,22 +13,22 @@ public class FahrzeugtypTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		t1 = Fahrzeugtyp.getInstance("PKW");
-		t2 = Fahrzeugtyp.getInstance("Pickup");
-		t3 = Fahrzeugtyp.getInstance("SUV");
-		t4 = Fahrzeugtyp.getInstance("Zweirad");
-		t5 = Fahrzeugtyp.getInstance("Trike");
-		t6 = Fahrzeugtyp.getInstance("Quad");
+		t1 = Fahrzeugtyp.PKW;//getInstance("PKW");
+		t2 = Fahrzeugtyp.Pickup;//getInstance("Pickup");
+		t3 = Fahrzeugtyp.SUV;//getInstance("SUV");
+		t4 = Fahrzeugtyp.Zweirad;//getInstance("Zweirad");
+		t5 = Fahrzeugtyp.Trike;//getInstance("Trike");
+		t6 = Fahrzeugtyp.Quad;//getInstance("Quad");
 	}
 	@Test
 	public final void test_same() {
-		assertSame(t1, Fahrzeugtyp.getInstance("PKW"));
-		assertSame(t2, Fahrzeugtyp.getInstance("Pickup"));
-		assertSame(t3, Fahrzeugtyp.getInstance("SUV"));
-		assertSame(t4, Fahrzeugtyp.getInstance("Zweirad"));
-		assertSame(t5, Fahrzeugtyp.getInstance("Trike"));
-		assertSame(t6, Fahrzeugtyp.getInstance("Quad"));
-		assertNull(Fahrzeugtyp.getInstance("Fahrrad"));
+		assertSame(t1, Fahrzeugtyp.PKW);//getInstance("PKW"));
+		assertSame(t2, Fahrzeugtyp.Pickup);//getInstance("Pickup"));
+		assertSame(t3, Fahrzeugtyp.SUV);//getInstance("SUV"));
+		assertSame(t4, Fahrzeugtyp.Zweirad);//getInstance("Zweirad"));
+		assertSame(t5, Fahrzeugtyp.Trike);//getInstance("Trike"));
+		assertSame(t6, Fahrzeugtyp.Quad);//getInstance("Quad"));
+		//assertNull(Fahrzeugtyp.Fahrrad);//getInstance("Fahrrad"));
 	}
 	@Test
 	public final void test_Name() {
