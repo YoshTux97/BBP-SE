@@ -16,6 +16,7 @@ public class gateTest {
 		gate1.close();
 		assertTrue(gate1.isClosed());
 	}
+	@Test
 	public void isClosed_openGate_false() {
 		gate1.open();
 		assertFalse(gate1.isClosed());
