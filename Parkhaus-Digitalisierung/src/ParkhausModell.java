@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Stream;
-
+//Mediator
 public class ParkhausModell {
 	private Bezahleinrichtung pay;
 	private gate gate;
