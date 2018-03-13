@@ -7,8 +7,8 @@ public abstract class EinnahmenTemplate {
 		return berechnen(pm.getTicketsStream());
 	}
 	long berechnen(Stream<Ticket> ticketStream) {
-		return ticketStream.filter(ticket -> filtern(ticket))
-				.mapToLong(ticket -> preisBerechnen(ticket))
+		return ticketStream.filter(this::filtern)
+				.mapToLong(this::preisBerechnen)
 				.sum();
 	}
 	abstract long preisBerechnen(Ticket t);
